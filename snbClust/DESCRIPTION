@@ -1,0 +1,14 @@
+Package: snbClust
+Type: Package
+Title: Sparse Negative Binomial Mixture Model for Clustering RNA-seq Count Data
+Version: 0.1.0
+Author: Yujia Li
+Maintainer: Yujia Li <yul178@pitt.edu>
+Depends: R (>= 3.4.1), Brobdingnag, truncnorm, sparcl, MCMCpack, mclust,
+        mvtnorm,edgeR
+Description: The package contains sparse negative binomial mixture model for clustering RNA-seq count data (snbClust) as well as the code for sparse Gaussian mixture model from a previous paper.
+License: MIT + file LICENSE
+LazyData: true
+Encoding: UTF-8
+RoxygenNote: 7.0.1
+NeedsCompilation: no
