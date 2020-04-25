@@ -7,6 +7,7 @@ Rahman, Tanbin, et al. "A sparse negative binomial mixture model for clustering 
 For installation, we recommend to unzip the tar.gz file first and then use devtools::install() to install the package, which can make sure to install all the depends.
 
 Below is an example to show our code in simulation 2:
+
 library(truncnorm)
 
 library(gplots)
