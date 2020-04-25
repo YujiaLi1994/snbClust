@@ -11,6 +11,7 @@ For installation, we recommend to unzip the tar.gz file first and then use devto
 ## The following shows how to get result for one run of simulation.
 
 ## Simulate the data
+```
 library(snbClust)
 
 load('BRCA_data.RData') ####Use real data to guide the simulatiom
@@ -26,8 +27,9 @@ sim.data<-Sim.Independent(ngenes=1000,eff_a=1,percent_DE=0.15,sim_disp,empirical
 disp<-1/estimateDisp(sim.data)$tagwise.dispersion
 
 est_lib<-calcNormFactors(sim.data)
-
+```
 ## SnbClust
+```
 y1<-cpm(sim.data,prior.count=0.25,log=T)
 
 data.sd<-t(apply(y1,1,function(x) (x-mean(x))))
@@ -44,18 +46,16 @@ center<-cbind(center1,center2,center3)
 
 center[which(center==0)]<-0.1
 
-#snbClust code
-
 tune<-seq(0,12,0.75)
 
 model_nb<-lapply(1:length(tune),function(i){
   res<-snbClust(data=sim.data,lib=est_lib,k=3,phi=disp,c_center=center,penalize=TRUE,tune=tune[i],max_iter_beta = 500)
   return(res)
 })
-
+```
 
 ## SgClust
-
+```
 result<-KMeansSparseCluster(t(data.sd),K=3,nstart=150)
 
 center1<-apply(data.sd[,which(result[[20]]$Cs==1)],1,mean)
@@ -72,7 +72,7 @@ model_gauss<-lapply(1:length(tuning_param_gauss),function(i){
   res<-sgClust(data=data.sd,c_center=center_gauss,lambda=tuning_param_gauss[i],K=3)
   return(res)
 })
-
+```
 
 
 
