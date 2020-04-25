@@ -1,34 +1,16 @@
-# snbClust
-The package snbClust contains the code for Sparse Negative Binomial Mixture Model for Clustering RNA-seq Count Data. 
-The sparse gaussian mixture model of Pan and Shen (2007) is also included in this package as a comparison.
+# Project Title
+
 The five R script contains all the simulation example and real data example in the following paper: 
 Rahman, Tanbin, et al. "A sparse negative binomial mixture model for clustering RNA-seq count data." arXiv preprint arXiv:1912.02399 (2019).
 
-For installation, we recommend to unzip the tar.gz file first and then use devtools::install() to install the package, which can make sure to install all the depends.
+### Installing
 
-Below is an example to show our code in simulation 2:
+For installation, we recommend to unzip the tar.gz file first and then use devtools::install() to install the package, which can make sure to install all the depends. Make sure R package truncnorm, gplots, sparcl, mclust, edgeR, mvtnorm, MCMCpack and Brobdingnag have all been properly imported.
 
-library(truncnorm)
 
-library(gplots)
+## The following shows how to get result for one run of simulation.
 
-library(sparcl)
-
-library(mclust)
-
-library(edgeR)
-
-library(mvtnorm)
-
-library(MCMCpack)
-
-##make sure all packages above has been imported
-
-#####################
-
-#The following shows how to get result for one run of simulation.
-
-######################
+## Simulate the data
 library(snbClust)
 
 load('BRCA_data.RData') ####Use real data to guide the simulatiom
@@ -41,14 +23,11 @@ sim_disp<-data$disp
 
 sim.data<-Sim.Independent(ngenes=1000,eff_a=1,percent_DE=0.15,sim_disp,empirical_dist) #####simulation data according to simulation 2 in the paper.
 
-####estimating dispersion parameter and library size normalization factor using edgeR
-
 disp<-1/estimateDisp(sim.data)$tagwise.dispersion
 
 est_lib<-calcNormFactors(sim.data)
 
-#get initial center for snbClust
-
+## SnbClust
 y1<-cpm(sim.data,prior.count=0.25,log=T)
 
 data.sd<-t(apply(y1,1,function(x) (x-mean(x))))
@@ -73,8 +52,9 @@ model_nb<-lapply(1:length(tune),function(i){
   res<-snbClust(data=sim.data,lib=est_lib,k=3,phi=disp,c_center=center,penalize=TRUE,tune=tune[i],max_iter_beta = 500)
   return(res)
 })
-  
-#get initial for sgClust
+
+
+## SgClust
 
 result<-KMeansSparseCluster(t(data.sd),K=3,nstart=150)
 
@@ -93,7 +73,7 @@ model_gauss<-lapply(1:length(tuning_param_gauss),function(i){
   return(res)
 })
 
-#sparse kmeans
 
-model.skmeans<-KMeansSparseCluster(t(data.sd),K=3,nstart=150)
+
+
 
