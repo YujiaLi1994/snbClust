@@ -22,7 +22,8 @@ sim_disp<-data$disp
 
 #eff_a is the effect size to tune, generally eff_a large than 0.8 will be strongly enough to give good separation.
 
-sim.data<-Sim.Independent(ngenes=1000,eff_a=1,percent_DE=0.15,sim_disp,empirical_dist) #####simulation data according to simulation 2 in the paper.
+sim.data<-Sim.Independent(ngenes=1000,eff_a=1,percent_DE=0.15,sim_disp,empirical_dist) 
+#####simulation data according to simulation 2 in the paper.
 
 disp<-1/estimateDisp(sim.data)$tagwise.dispersion
 
@@ -49,7 +50,8 @@ center[which(center==0)]<-0.1
 tune<-seq(0,12,0.75)
 
 model_nb<-lapply(1:length(tune),function(i){
-  res<-snbClust(data=sim.data,lib=est_lib,k=3,phi=disp,c_center=center,penalize=TRUE,tune=tune[i],max_iter_beta = 500)
+  res<-snbClust(data=sim.data,lib=est_lib,k=3,phi=disp,
+  c_center=center,penalize=TRUE,tune=tune[i],max_iter_beta = 500)
   return(res)
 })
 ```
