@@ -20,7 +20,8 @@ empirical_dist<-apply(data$data,1,mean)
 
 sim_disp<-data$disp
 
-#eff_a is the effect size to tune, generally eff_a large than 0.8 will be strongly enough to give good separation.
+#eff_a is the effect size to tune, generally eff_a large than 
+0.8 will be strongly enough to give good separation.
 
 sim.data<-Sim.Independent(ngenes=1000,eff_a=1,percent_DE=0.15,sim_disp,empirical_dist) 
 #####simulation data according to simulation 2 in the paper.
