@@ -1,7 +1,7 @@
 # Project Title
 
 The five R script contains all the simulation example and real data example in the following paper: 
-Rahman, Tanbin, et al. "A sparse negative binomial mixture model for clustering RNA-seq count data." arXiv preprint arXiv:1912.02399 (2019).
+Rahman T, Li Y, Ma T, et al. A sparse negative binomial mixture model for clustering RNA-seq count data[J]. arXiv preprint arXiv:1912.02399, 2019.
 
 ### Installing
 
