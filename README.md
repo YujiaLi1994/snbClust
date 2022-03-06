@@ -1,8 +1,7 @@
 # Project Title
 
 The five R script contains all the simulation example and real data example in the following paper: 
-Rahman T, Li Y, Ma T, et al. A sparse negative binomial mixture model for clustering RNA-seq count data[J]. arXiv preprint arXiv:1912.02399, 2019.
-
+Li Y, Rahman T, Ma T, et al. A sparse negative binomial mixture model for clustering RNA-seq count data[J]. Biostatistics, 2021. (https://doi.org/10.1093/biostatistics/kxab025)
 ### Installing
 
 For installation, we recommend to unzip the tar.gz file first and then use devtools::install() to install the package, which can make sure to install all the depends. Make sure R package truncnorm, gplots, sparcl, mclust, edgeR, mvtnorm, MCMCpack and Brobdingnag have all been properly imported.
