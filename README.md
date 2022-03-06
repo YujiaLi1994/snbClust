@@ -1,7 +1,7 @@
 # Project Title
 
 The package implements sparse negative binomial mixture models (snbClust) proposed in the following paper: 
-Li Y, Rahman T, Ma T, et al. A sparse negative binomial mixture model for clustering RNA-seq count data[J]. Biostatistics, 2021. (https://doi.org/10.1093/biostatistics/kxab025). Function of sparse Gaussian mixture models is also included, along with the real applications evaluated in the paper.
+Li Y, Rahman T, Ma T, et al. A sparse negative binomial mixture model for clustering RNA-seq count data[J]. Biostatistics, 2021. (https://doi.org/10.1093/biostatistics/kxab025). Function of sparse Gaussian mixture models is also included in the package. Two real applications evaluated in the paper is not included in the package but uploaded in this github project (one rat brain application and one TCGA breast cancer application).
 ### Installing
 
 For installation, we recommend to unzip the tar.gz file first and then use devtools::install() to install the package, which can make sure to install all the depends. Make sure R package truncnorm, gplots, sparcl, mclust, edgeR, mvtnorm, MCMCpack and Brobdingnag have all been properly imported.
